@@ -10,6 +10,7 @@ student_scores = {
 #TODO-1: Create an empty dictionary called student_grades.
 student_grades = {}
 for key, value in student_scores.items():
+    # alternatively, use value = student_scores[key] to run
     if value >= 91 and value <= 100:
         student_grades[key] = "Outstanding"
     elif value >= 81 and value <= 90:
