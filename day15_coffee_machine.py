@@ -59,11 +59,13 @@ def check_sufficient(order_ingredients):
             return False
     return True
 
-def add(quarters, dimes, nickles, pennies):
-    money = 0
-    total = (quarters * 0.25) + (dimes * 0.1) + (nickles * 0.05) + (pennies * 0.01)
-    money += total
-    return money
+def process_coin():
+    print("Please insert coins.")
+    total = int(input("how many quarters?: ")) * 0.25
+    total += int(input("how many dimes?: ")) * 0.1
+    total += int(input("how many nickles?: ")) * 0.05
+    total += int(input("how many pennies?: ")) * 0.01
+    return total
 
 def make_coffee(order_ingredients, resource):
     for item in order_ingredients:
@@ -84,14 +86,9 @@ while machine_turn_on:
     elif is_drinks(drinks, choice) == True:
         drink = MENU[choice]
         if check_sufficient(drink['ingredients']) == True:
-            print("Please insert coins.")
-            quarters = int(input("how many quarters?: "))
-            dimes = int(input("how many dimes?: "))
-            nickles = int(input("how many nickles?: "))
-            pennies = int(input("how many pennies?: "))
 
 #TODO: 4. create calculation function to check if money sufficient and changes
-            money = float(add(quarters, dimes, nickles, pennies))
+            money = process_coin()
             payment = MENU[choice]['cost']
             changes = 0
             if money >= payment:
